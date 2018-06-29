@@ -1,20 +1,18 @@
-package com.weaxme;
+package com.weaxme.module;
 
+import com.orientechnologies.orient.core.db.document.ODatabaseDocument;
+import com.orientechnologies.orient.core.record.impl.ODocument;
 import org.orienteer.core.OrienteerWebApplication;
 import org.orienteer.core.module.AbstractOrienteerModule;
 import org.orienteer.core.module.IOrienteerModule;
 import org.orienteer.core.util.OSchemaHelper;
 
-import com.orientechnologies.orient.core.db.document.ODatabaseDocument;
-import com.orientechnologies.orient.core.record.impl.ODocument;
-import com.orientechnologies.orient.core.metadata.schema.OType;
-
 /**
  * {@link IOrienteerModule} for 'orienteer-toggl' module
  */
-public class Module extends AbstractOrienteerModule{
+public class OrienteerTogglModule extends AbstractOrienteerModule {
 
-	protected Module() {
+	protected OrienteerTogglModule() {
 		super("orienteer-toggl", 1);
 	}
 	
@@ -30,13 +28,11 @@ public class Module extends AbstractOrienteerModule{
 	@Override
 	public void onInitialize(OrienteerWebApplication app, ODatabaseDocument db) {
 		super.onInitialize(app, db);
-		app.mountPages("com.weaxme.web");
 	}
 	
 	@Override
 	public void onDestroy(OrienteerWebApplication app, ODatabaseDocument db) {
 		super.onDestroy(app, db);
-		app.unmountPages("com.weaxme.web");
 	}
 	
 }
